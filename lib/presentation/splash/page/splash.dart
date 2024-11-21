@@ -17,10 +17,10 @@ class SplashPage extends StatelessWidget {
         listener: (context, state) {
           if (state is UnAuthenticated) {
             //Redirect user to Login page
-            AppNavigator.pushReplacement(context, const SignInPage());
+            AppNavigator.pushReplacement(context,  SignInPage());
           }
           if (state is Authenticated) {
-            AppNavigator.pushReplacement(context, const HomePage());
+            AppNavigator.pushReplacement(context,  HomePage());
           }
         },
         child: Stack(

@@ -15,26 +15,7 @@ class SignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        minimum: const EdgeInsets.only(top: 100,right:16,left:16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _signupText(),
-            const SizedBox(height: 30,),
-            _emailField(),
-            const SizedBox(height: 20,),
-            _passwordField(),
-            const SizedBox(height: 60,),
-            _signupButton(context),
-            const SizedBox(height: 20,),
-            _signinText(context)
-          ],
-        ),
-      ),
-    );
+    return const Placeholder();
   }
 
   Widget _signupText() {
