@@ -1,11 +1,14 @@
 import 'package:bloc_api_with_clean_architecture/core/configs/theme/app_theme.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/splash/block/splash_cubit.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/splash/page/splash.dart';
+import 'package:bloc_api_with_clean_architecture/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setUpServiceLocator();
   runApp(const MyApp());
 }
 
