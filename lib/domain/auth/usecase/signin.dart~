@@ -1,0 +1,10 @@
+import 'package:bloc_api_with_clean_architecture/core/usecase/usecase.dart';
+
+class SignInUseCase extends UseCase{
+  @override
+  Future call({params}) {
+    // TODO: implement call
+    throw UnimplementedError();
+  }
+
+}
