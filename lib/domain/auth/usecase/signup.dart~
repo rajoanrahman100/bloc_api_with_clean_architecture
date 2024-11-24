@@ -1,0 +1,13 @@
+import 'package:bloc_api_with_clean_architecture/core/usecase/usecase.dart';
+import 'package:bloc_api_with_clean_architecture/data/auth/models/signin_req_params.dart';
+import 'package:bloc_api_with_clean_architecture/data/auth/models/signup_req_params.dart';
+import 'package:dartz/dartz.dart';
+
+class SignUpUseCase extends UseCase<Either,SignupReqParams>{
+  @override
+  Future<Either> call({SignupReqParams params}) {
+    // TODO: implement call
+    throw UnimplementedError();
+  }
+
+}
