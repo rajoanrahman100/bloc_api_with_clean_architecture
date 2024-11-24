@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc_api_with_clean_architecture/common/helper/message/display_message.dart';
 import 'package:bloc_api_with_clean_architecture/common/helper/navigation/app_navigation.dart';
 import 'package:bloc_api_with_clean_architecture/core/configs/theme/app_colors.dart';
@@ -74,7 +76,13 @@ class SignupPage extends StatelessWidget {
         title: 'Sign Up',
         activeColor: AppColors.primary,
         onPressed: () async {
-          await sl<SignUpUseCase>().call(params: SignupReqParams(email: _emailCon.text, password: _passwordCon.text));
+          var result = await sl<SignUpUseCase>()
+              .call(params: SignupReqParams(email: _emailCon.text, password: _passwordCon.text));
+          result.fold((l) {
+            log("Error: $l");
+          }, (r) {
+            AppNavigator.pushAndRemove(context, const HomePage());
+          });
         },
         onSuccess: () {
           AppNavigator.pushAndRemove(context, const HomePage());

@@ -6,17 +6,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(DisplaySplash()); //Set the initial state
 
-  void appStarted()async{
+  void appStarted() async {
     await Future.delayed(const Duration(seconds: 2));
 
-    final isLoggedIn=await sl<IsLoggedUseCase>().call();
+    final isLoggedIn = await sl<IsLoggedUseCase>().call();
 
-    if(isLoggedIn) {
+    if (isLoggedIn) {
       emit(Authenticated());
-    }else{
+    } else {
       emit(UnAuthenticated());
     }
-
   }
-
 }
