@@ -38,11 +38,6 @@ class AuthRepositoryImpl extends AuthRepository {
   Future<bool> isLoggedIn() async{
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     final token  = sharedPreferences.getString('token');
-    if(token != null){
-      return true;
-    }else{
-      return false;
-    }
 
   }
 }

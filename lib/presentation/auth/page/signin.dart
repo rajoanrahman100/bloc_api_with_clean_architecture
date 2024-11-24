@@ -3,7 +3,6 @@ import 'package:bloc_api_with_clean_architecture/core/configs/theme/app_colors.d
 import 'package:bloc_api_with_clean_architecture/data/auth/models/signin_req_params.dart';
 import 'package:bloc_api_with_clean_architecture/domain/auth/usecase/signin_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/auth/page/signup.dart';
-import 'package:bloc_api_with_clean_architecture/presentation/home/page/home.dart';
 import 'package:bloc_api_with_clean_architecture/service_locator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -73,13 +72,7 @@ class SignInPage extends StatelessWidget {
       title: 'Sign In',
       activeColor: AppColors.primary,
       onPressed: () async {
-        var result =
-            await sl<SignInUseCase>().call(params: SignInReqParams(email: _emailCon.text, password: _passwordCon.text));
-        result.fold((left) {
-          print("Message ${left}");
-        }, (right) {
-          AppNavigator.pushAndRemove(context,  const HomePage());
-        });
+        await sl<SignInUseCase>().call(params: SignInReqParams(email: _emailCon.text, password: _passwordCon.text));
       },
       onSuccess: () {
         // AppNavigator.pushAndRemove(context, const HomePage());
