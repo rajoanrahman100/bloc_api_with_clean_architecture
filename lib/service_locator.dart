@@ -12,6 +12,7 @@ import 'package:bloc_api_with_clean_architecture/domain/movie/repositories/movie
 import 'package:bloc_api_with_clean_architecture/domain/movie/usecase/get_now_playing_movies_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/usecase/get_trending_movies_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/domain/tv/repositories/tv.dart';
+import 'package:bloc_api_with_clean_architecture/domain/tv/usecase/get_popular_tv.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -37,4 +38,5 @@ void setUpServiceLocator() {
   sl.registerSingleton<IsLoggedUseCase>(IsLoggedUseCase());
   sl.registerSingleton<GetTrendingMoviesUseCase>(GetTrendingMoviesUseCase());
   sl.registerSingleton<GetNowPlayingMoviesUseCase>(GetNowPlayingMoviesUseCase());
+  sl.registerSingleton<GetPopularTVUseCase>(GetPopularTVUseCase());
 }
