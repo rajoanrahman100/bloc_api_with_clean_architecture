@@ -1,5 +1,7 @@
 import 'package:bloc_api_with_clean_architecture/common/widget/appbar/app_bar.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/entities/movie.dart';
+import 'package:bloc_api_with_clean_architecture/presentation/watch/page/video_vote_average.dart';
+import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/video_overview.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/video_player.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/video_release_date.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/video_title.dart';
@@ -31,14 +33,14 @@ class MovieWatchPage extends StatelessWidget {
                 VideoVoteAverage(voteAverage: movieEntity.voteAverage!,)
               ],
             ),
-            // const SizedBox(height: 16,),
-            // VideoOverview(overview: movieEntity.overview!,),
-            // const SizedBox(height: 16,),
+            const SizedBox(height: 16,),
+            VideoOverview(overview: movieEntity.overview!,),
+            const SizedBox(height: 16,),
             // RecommendationMovies(movieId: movieEntity.id!,),
             // const SizedBox(height: 16,),
             // SimilarMovies(movieId: movieEntity.id!,)
           ],
-        ),,
+        ),
       ),
     );
   }
