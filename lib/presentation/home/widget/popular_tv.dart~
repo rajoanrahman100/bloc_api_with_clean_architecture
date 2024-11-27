@@ -1,8 +1,6 @@
 import 'package:bloc_api_with_clean_architecture/common/bloc/generic_data_cubit.dart';
-import 'package:bloc_api_with_clean_architecture/common/bloc/generic_data_state.dart';
 import 'package:bloc_api_with_clean_architecture/common/widget/tv/tv_card.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/entities/movie.dart';
-import 'package:bloc_api_with_clean_architecture/domain/tv/entities/tv.dart';
 import 'package:bloc_api_with_clean_architecture/domain/tv/usecase/get_popular_tv.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/home/block/populartv_cubit.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/home/block/populartv_state.dart';
@@ -16,30 +14,30 @@ class PopularTv extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => GenericDataCubit()..getData<List<TVEntity>>(sl<GetPopularTVUseCase>()),
-        child: BlocBuilder<GenericDataCubit, GenericDataState>(
+        create: (context) => GenericDataCubit()..getData<List<MovieEntity>>(sl<GetPopularTVUseCase>()),
+        child: BlocBuilder<PopularTVCubit, PopularTVState>(
           builder: (context, state) {
-            if (state is DataLoading) {
+            if (state is PopularTVLoading) {
               return const Center(child: CircularProgressIndicator());
             }
 
-            if (state is DataLoaded) {
+            if (state is PopularTVLoaded) {
               return SizedBox(
                 height: 300,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     itemBuilder: (context, index) {
-                      return TvCard(tvEntity: state.data[index]);
+                      return TvCard(tvEntity: state.tv[index]);
                     },
                     separatorBuilder: (context, index) => const SizedBox(
                           width: 10,
                         ),
-                    itemCount: state.data.length),
+                    itemCount: state.tv.length),
               );
             }
 
-            if (state is FailureDataLoaded) {
+            if (state is PopularTVError) {
               return Center(child: Text(state.message));
             }
 

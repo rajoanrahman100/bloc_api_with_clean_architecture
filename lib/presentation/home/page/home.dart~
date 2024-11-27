@@ -6,8 +6,6 @@ import 'package:bloc_api_with_clean_architecture/presentation/home/widget/trendi
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../widget/popular_tv.dart';
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -25,9 +23,7 @@ class HomePage extends StatelessWidget {
             CategoryText(title: 'Trendings 🔥'),
             TrendingMovies(),
             CategoryText(title: 'Now Playing 🔥'),
-            NowPlayingMovies(),
-            CategoryText(title: 'Popular TV Shows 🔥'),
-            PopularTv(),
+            NowPlayingMovies()
           ],
         ),
       ),

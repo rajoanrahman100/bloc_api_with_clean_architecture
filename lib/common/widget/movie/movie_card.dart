@@ -1,5 +1,7 @@
 
+import 'package:bloc_api_with_clean_architecture/common/helper/navigation/app_navigation.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/entities/movie.dart';
+import 'package:bloc_api_with_clean_architecture/presentation/watch/page/movie_watch.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,7 +18,7 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-       //AppNavigator.push(context, MovieWatchPage(movieEntity: movieEntity,));
+       AppNavigator.push(context, MovieWatchPage(movieEntity: movieEntity,));
       },
       child: Container(
         width: 180,
