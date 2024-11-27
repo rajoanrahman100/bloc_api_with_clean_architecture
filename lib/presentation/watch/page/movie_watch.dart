@@ -1,6 +1,7 @@
 import 'package:bloc_api_with_clean_architecture/common/widget/appbar/app_bar.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/entities/movie.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/watch/page/video_vote_average.dart';
+import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/similar_movies.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/video_overview.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/video_player.dart';
 import 'package:bloc_api_with_clean_architecture/presentation/watch/widget/video_release_date.dart';
@@ -58,7 +59,7 @@ class MovieWatchPage extends StatelessWidget {
               movieId: movieEntity.id!,
             ),
             // const SizedBox(height: 16,),
-            // SimilarMovies(movieId: movieEntity.id!,)
+            SimilarMovies(movieId: movieEntity.id!,)
           ],
         ),
       ),
