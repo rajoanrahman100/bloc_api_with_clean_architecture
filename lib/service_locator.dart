@@ -9,6 +9,7 @@ import 'package:bloc_api_with_clean_architecture/domain/auth/usecase/isloggedin_
 import 'package:bloc_api_with_clean_architecture/domain/auth/usecase/signin_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/domain/auth/usecase/signup_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/repositories/movie.dart';
+import 'package:bloc_api_with_clean_architecture/domain/movie/usecase/get_movie_trailer_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/usecase/get_now_playing_movies_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/usecase/get_trending_movies_usecase.dart';
 import 'package:bloc_api_with_clean_architecture/domain/tv/repositories/tv.dart';
@@ -39,4 +40,5 @@ void setUpServiceLocator() {
   sl.registerSingleton<GetTrendingMoviesUseCase>(GetTrendingMoviesUseCase());
   sl.registerSingleton<GetNowPlayingMoviesUseCase>(GetNowPlayingMoviesUseCase());
   sl.registerSingleton<GetPopularTVUseCase>(GetPopularTVUseCase());
+  sl.registerSingleton<GetMovieTrailerUseCase>(GetMovieTrailerUseCase());
 }

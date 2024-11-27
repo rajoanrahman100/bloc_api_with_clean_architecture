@@ -1,4 +1,7 @@
 import 'package:bloc_api_with_clean_architecture/common/helper/mapper/movie.dart';
+import 'package:bloc_api_with_clean_architecture/common/helper/mapper/trailer.dart';
+import 'package:bloc_api_with_clean_architecture/core/entity/trailer.dart';
+import 'package:bloc_api_with_clean_architecture/core/models/trailer.dart';
 import 'package:bloc_api_with_clean_architecture/data/movie/model/movie.dart';
 import 'package:bloc_api_with_clean_architecture/data/movie/source/movie/movie_api_service.dart';
 import 'package:bloc_api_with_clean_architecture/domain/movie/repositories/movie.dart';
@@ -27,6 +30,18 @@ class MovieRepositoryIml extends MovieRepository {
       return Left(error);
     }, (data) {
       var movies = List.from(data['content']).map((e) => MovieMapper.toEntity(MovieModel.fromJson(e))).toList();
+      return Right(movies);
+    });
+  }
+
+  @override
+  Future<Either> getMovieTrailer(int movieID) async{
+    // TODO: implement getMovieTrailer
+    var data =  await sl<MovieApiServiceImpl>().getMovieTrailer(movieID);
+    return data.fold((error) {
+      return Left(error);
+    }, (data) {
+      var movies = TrailerMapper.toEntity(TrailerModel.fromJson(data["trailer"]));
       return Right(movies);
     });
   }

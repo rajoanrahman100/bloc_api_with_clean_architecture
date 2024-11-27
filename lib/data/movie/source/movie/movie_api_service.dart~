@@ -37,7 +37,7 @@ class MovieApiServiceImpl extends MovieApiService {
   Future<Either> getMovieTrailer(int movieID) async{
     // TODO: implement getMovieTrailer
     try {
-      var response = await sl<DioClient>().get("${ApiUrl.movie}$movieID/trailer");
+      var response = await sl<DioClient>().get(ApiUrl.nowPlayingMovies);
       return Right(response.data);
     } on DioException catch (e) {
       return Left("Exception ${e.response!.data["message"]}");
